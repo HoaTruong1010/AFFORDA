@@ -90,7 +90,6 @@ header {
 
   .in-line {
     background: skyblue;
-    padding: 15px 20px;
     margin: 2.5%;
     position: relative;
     overflow: hidden;
@@ -100,6 +99,7 @@ header {
     color: darkcyan;
     font-weight: 500;
     display: block;
+    padding: 15px 20px;
   }
 
   .in-line::before {

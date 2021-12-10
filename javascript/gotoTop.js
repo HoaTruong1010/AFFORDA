@@ -1,17 +1,17 @@
 $(document).ready(function (){
-    $("#goUp").hide()
+    $('#goUp').hide()
 
     $(window).scroll (function(){
         if($(this).scrollTop() >= 100){
-            $("#goUp").show("slow")
+            $('#goUp').show('slow')
         }
         else {
-            $("#goUp").hide("fast")
+            $('#goUp').hide('fast')
         }
     })
 
-    $("#goUp").click(function() {
-        $("html, body").animate({
+    $('#goUp').click(function() {
+        $('html, body').animate({
             scrollTop: 0
         }, 1500)
     })

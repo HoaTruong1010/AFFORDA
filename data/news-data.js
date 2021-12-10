@@ -1,56 +1,56 @@
 const hotTours = [
     {
-        name: "Sapa - Mộc Châu",
+        name: 'Sapa - Mộc Châu',
         star: 5,
         review: 325,
-        date: "10/10/2021",
-        priceText: "7.500.000đ",
-        period: "4 ngày 3 đêm",
+        date: '10/10/2021',
+        priceText: '7.500.000đ',
+        period: '4 ngày 3 đêm',
         number: 9
     },
     {
-        name: "Đà Nẵng",
+        name: 'Đà Nẵng',
         star: 5,
         review: 362,
-        date: "11/10/2021",
-        priceText: "3.500.000đ",
-        period: "3 ngày 2 đêm",
+        date: '11/10/2021',
+        priceText: '3.500.000đ',
+        period: '3 ngày 2 đêm',
         number: 2
     },
     {
-        name: "Hội An",
+        name: 'Hội An',
         star: 5,
         review: 300,
-        date: "9/10/2021",
-        priceText: "5.499.000đ",
-        period: "5 ngày 4 đêm",
+        date: '9/10/2021',
+        priceText: '5.499.000đ',
+        period: '5 ngày 4 đêm',
         number: 3
     },
     {
-        name: "Đà Lạt",
+        name: 'Đà Lạt',
         star: 5,
         review: 410,
-        date: "21/10/2021",
-        priceText: "1.999.000đ",
-        period: "3 ngày 2 đêm",
+        date: '21/10/2021',
+        priceText: '1.999.000đ',
+        period: '3 ngày 2 đêm',
         number: 2
     },
     {
-        name: "Nha Trang",
+        name: 'Nha Trang',
         star: 5,
         review: 379,
-        date: "31/10/2021",
-        priceText: "2.999.000đ",
-        period: "2 ngày 1 đêm",
+        date: '31/10/2021',
+        priceText: '2.999.000đ',
+        period: '2 ngày 1 đêm',
         number: 4
     },
     {
-        name: "Phú Quốc",
+        name: 'Phú Quốc',
         star: 5,
         review: 450,
-        date: "12/10/2021",
-        priceText: "4.499.000đ",
-        period: "3 ngày 2 đêm",
+        date: '12/10/2021',
+        priceText: '4.499.000đ',
+        period: '3 ngày 2 đêm',
         number: 5
     }
 ]
@@ -61,12 +61,12 @@ const handBooks = [
         name: 'Du lịch Cần Giờ ăn gì, quán nào ngon?',
         date: '26/09/2021',
         info: `<p><b>Bên cạnh những món hải sản tươi ngon như tôm tít, ghẹ, hàu... du lịch Cần Giờ bạn nhất
-                        định đừng bỏ qua những món "đặc sản" này nhé:</b></p>
+                        định đừng bỏ qua những món 'đặc sản' này nhé:</b></p>
                 <p><b>+ Cá thòi lòi trộn gỏi lìm kìm:</b> Món ăn dân dã với vị béo thơm của cá thòi lòi, vị
                     chua chua chát chát của lá lìm kìm lẫn trong vị ngọt của nước mắm pha đường thiệt là
                     ngon hết sẩy. Và sẽ càng ngon hơn khi các bạn thưởng thức với rượu mật ong rừng Sác.</p>
                 <p><b>+ Cơm cháy chà bông:</b> Tại Cần Giờ có cách chế biến món cơm cháy chà bông khá lạ, vì
-                    thế món ăn này còn được nhiều người bảo nhau là "đặc sản" của du lịch Cần Giờ. Xôi được
+                    thế món ăn này còn được nhiều người bảo nhau là 'đặc sản' của du lịch Cần Giờ. Xôi được
                     cán mỏng, bọc quanh hỗn hợp nhân là thịt ốc và gia vị, tạo thành hình bánh gối. Món bánh
                     này được chiên giòn, ăn cùng chà bông rất thơm ngon khiến người ăn ăn một lần là thèm
                     thuồng mãi.</p>

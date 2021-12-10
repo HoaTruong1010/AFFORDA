@@ -1,13 +1,12 @@
 $(document).ready(function() {
 
-    createTourTemplate(tours);
-    createRoomTemplate(rooms);
+    createTemplate(hotel_data);
 
-    $("header, section, footer").addClass("wow animate__fadeIn")
-    $("section.resort > div.content > div.resort-items > figure").addClass("wow animate__flipInY")
-    $("section.hotels > div.content > div.h-items > figure").addClass("wow animate__zoomIn")
+    $('header, section, footer').addClass('wow animate__fadeIn')
+    $('section.resort > div.content > div.resort-items > figure').addClass('wow animate__flipInY')
+    $('section.hotels > div.content > div.h-items > figure').addClass('wow animate__zoomIn')
 
-    $(".click").click(function() {
+    $('.click').click(function() {
         alert('Vui lòng đăng nhập để thực hiện thao tác!')
     })
 
@@ -23,58 +22,53 @@ $(document).ready(function() {
 
     var li1, li2, li3;
 
-    $("#category > ul > li > span").click(function() {
+    $('#category > ul > li > span').click(function() {
         var category = $(this).text()
         li1 = category
 
-        $("#category > span").text(category)
+        $('#category > span').text(category)
     })
 
-    $("#area > ul > li > span").click(function() {
+    $('#area > ul > li > span').click(function() {
         var area = $(this).text()
         li2 = area
 
-        $("#area > span").text(area)
+        $('#area > span').text(area)
     })
 
-    $("#price > ul > li > span").click(function() {
+    $('#price > ul > li > span').click(function() {
         var price = $(this).text()
         li3 = price
 
-        $("#price > span").text(price)
+        $('#price > span').text(price)
     })
     
-    $("#look").click(function() {
-        
-        li1 = li1 && li1.toUpperCase();
+    $('#look').click(function() {
     
-        var newTours = [...tours];
-        var newRooms = [...rooms]
+        var newTemplate = [...hotel_data];
 
-        if(li1.includes('KHU NGHỈ DƯỠNG')) {
-            
+        if(li1) {
+            newTemplate = newTemplate.filter(nt => nt.category === li1);
+
             if(li2){
-                newTours = newTours.filter(tour => tour.location === li2 );
+                newTemplate = newTemplate.filter(nt => nt.location === li2 );
                 if(li3) {
                     if(li3.includes('thấp đến cao'))
                     {
-                        newTours.sort((a, b) => a.price - b.price)
+                        newTemplate.sort((a, b) => a.price - b.price)
                     }
                     else
-                        newTours.sort((a, b) => b.price - a.price)
+                        newTemplate.sort((a, b) => b.price - a.price)
 
-                    createTourTemplate(newTours);
+                    createTemplate(newTemplate);
 
-                    $("button.click").click(function() {
+                    $('button.click').click(function() {
                         alert('Vui lòng đăng nhập để thực hiện thao tác!')
                      })
         
-                    $(".hotels").css("display", "none")
-        
-                    $(".resort").css({
-                        "animation": "flash 1s ease-out",
-                        "display" : "block"
-                    })
+                    display(li1);
+
+                    $('figure').css('animation', 'flash 1s ease-out')
                 }
                 else
                     alert('Vui lòng chọn đầy đủ!')   
@@ -82,108 +76,87 @@ $(document).ready(function() {
             else
                 alert('Vui lòng chọn đầy đủ!')
         }
-        else if(li1.includes('KHÁCH SẠN')) {
-                if(li2){
-                    newRooms = newRooms.filter(room => room.location.includes(li2));
-
-                    if(li3) {
-                        
-                        if(li3.includes('thấp đến cao'))
-                        {
-                            newRooms.sort((a, b) => a.price - b.price)
-                        }
-                        else
-                            newRooms.sort((a, b) => b.price - a.price)
-
-                        createRoomTemplate(newRooms)
-
-                        $("button.click").click(function() {
-                            alert('Vui lòng đăng nhập để thực hiện thao tác!')
-                        })
-    
-                        $(".resort").css("display", "none")
-
-                        // tạo hiệu ứng nháy khi click vào nút tìm
-                        $(".hotels").css({
-                            "animation": "flash 1s ease-out",
-                            "display" : "block"
-                        })
-                    }
-                    else
-                        alert('Vui lòng chọn đầy đủ!')   
-                }
-                else
-                    alert('Vui lòng chọn đầy đủ!')
-            }
-            else 
-                alert('Vui lòng chọn đầy đủ!')
+        else
+            alert('Vui lòng chọn mục cần tìm!')
     });
 })
 
 const createRating = (rating) => {
     var output = ''
     for(var i = 0; i < rating; i++) {
-        output+= `<i class="fas fa-star"></i>`
+        output+= `<i class='fas fa-star'></i>`
     }
     return output
 }
 
-const createTourTemplate = (tours) => {
-    const resortContainer = $('.resort-items');
-    var output = ''
-    tours.forEach(tour => output += 
-    `<figure>
-        <img src=${tour.img} alt="">
-        <figcaption class="flex">
-            <div>
-                <div class="r-title">
-                    <p><i class="fas fa-map-marker-alt"></i> ${tour.location}</p>
-                    <div class="flex">
-                        <h3>${tour.name}</h3>
-                    </div>
-                </div>
-                <div class="r-info">
-                    <div>
-                        <div class="rating">
-                            ${createRating(tour.rating)}
+const createTemplate = (arr) => {
+
+    var outputResort = '', outputHotel = ''
+    $.each(arr, function(index, value) {
+        
+        if(value.category === 'Khu nghỉ dưỡng') {
+            outputResort += `<figure>
+                            <img src=${value.img} alt=''>
+                            <figcaption class='flex'>
+                                <div>
+                                    <div class='r-title'>
+                                        <p><i class='fas fa-map-marker-alt'></i> ${value.location}</p>
+                                        <div class='flex'>
+                                            <h3>${value.name}</h3>
+                                        </div>
+                                    </div>
+                                    <div class='r-info'>
+                                        <div>
+                                            <div class='rating'>
+                                                ${createRating(value.rating)}
+                                            </div>
+                                            <p>Giá: ${value.textPrice} VND</p>
+                                        </div>
+                                        <div class='btn'>
+                                            <button class='click'>Đặt ngay</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </figcaption>
+                        </figure>`
+        }
+        else if(value.category === 'Khách sạn') {
+            outputHotel += `<figure>
+                        <div class='flex'>
+                            <img src=${value.img} alt=''>
+                            <figcaption>
+                                <div class='h-title'>
+                                    <p><i class='fas fa-map-marker-alt'></i> ${value.location} - ${value.address}</p>
+                                    <h3>${value.name}</h3>
+                                </div>
+                                <div class='h-info'>
+                                    <div>
+                                        <div class='rating'> ${createRating(value.rating)} </div>
+                                        <p>Giá: ${value.textPrice} VND</p>
+                                    </div>
+                                    <div class='btn'>
+                                        <button class='click'>Đặt ngay</button>
+                                    </div>
+                                </div>
+                            </figcaption>  
                         </div>
-                        <p>Giá: ${tour.textPrice} VND</p>
-                    </div>
-                    <div class="btn">
-                        <button class="click">Đặt ngay</button>
-                    </div>
-                </div>
-            </div>
-        </figcaption>
-    </figure>`);
-    resortContainer.html(output)
+                    </figure>`
+        }
+    });
+    
+    $('.resort-items').html(outputResort);
+    $('.h-items').html(outputHotel);
 }
 
-const createRoomTemplate = (rooms) => {
-    const hotelContainer = $(".h-items");
-    var output = "";
-    rooms.forEach(room => output += 
-        `
-        <figure>
-            <div class="flex">
-                <img src=${room.img} alt="">
-                <figcaption>
-                    <div class="h-title">
-                        <p><i class="fas fa-map-marker-alt"></i> ${room.location}</p>
-                        <h3>${room.name}</h3>
-                    </div>
-                    <div class="h-info">
-                        <div>
-                            <div class="rating"> ${createRating(room.rating)} </div>
-                            <p>Giá: ${room.textPrice} VND</p>
-                        </div>
-                        <div class="btn">
-                            <button class="click">Đặt ngay</button>
-                        </div>
-                    </div>
-                </figcaption>  
-            </div>
-        </figure>
-        `)
-    hotelContainer.html(output)
+const display = (request) => {
+    if(request === 'Khu nghỉ dưỡng') {
+        $('.hotels').css('display', 'none')
+        
+        $('.resort').css('display', 'block')
+    }
+    else if(request === 'Khách sạn'){
+        $('.resort').css('display', 'none')
+        
+        $('.hotels').css('display', 'block')
+    }
 }
