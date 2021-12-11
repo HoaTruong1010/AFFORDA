@@ -318,7 +318,6 @@ nav.search-hotel {
   }
 
   .resort-items > figure:hover > img {
-    -webkit-transform: scale(1.2);
     transform: scale(1.2);
   }
 
