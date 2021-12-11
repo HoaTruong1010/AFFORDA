@@ -85,7 +85,7 @@ const hotel_data = [
         img: '/images/hotel/KS-sapa.jpg',
         location: 'Miền Bắc',
         address: 'Sa Pa',
-        name: 'Hotel de la Coupole – MGallery',
+        name: 'Hotel de la Coupole - MGallery',
         rating: 5,
         textPrice: '2.999.000',
         price: 2999000
