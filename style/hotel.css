@@ -194,17 +194,18 @@ nav.search-hotel {
 
   ul.search-form > li {
     margin: 4% 2%;
-    border: 1px solid darkcyan;
     position: relative;
-    border-radius: 5px;
   }
 
   ul.search-form > li > span {
     display: block;
     color: darkcyan;
     padding: 10px 30px 10px 15px;
+    margin-bottom: 15px;
     color: black;
     font-size: 18px;
+    border: 1px solid darkcyan;
+    border-radius: 5px;
     cursor: pointer;
   } 
 
@@ -218,7 +219,7 @@ nav.search-hotel {
     border-style: solid;
     border-color: darkcyan transparent transparent transparent;
     position: absolute;
-    top: 45%;
+    top: 35%;
     margin-left: 9px;
   }
 
@@ -226,7 +227,6 @@ nav.search-hotel {
       width: 11em;
       position: absolute;
       border: 1px solid silver;
-      margin-top: 15px;
       box-shadow: silver 5px 5px 10px;
       border-radius: 5px;
       visibility: hidden;
@@ -269,7 +269,7 @@ nav.search-hotel {
 
     .search-form > li:hover > span::after {
       border-color: transparent transparent darkcyan transparent !important;
-      bottom: 45%;
+      bottom: 55%;
       top: 0 !important;
       transition: all 0.5s ease;
     }
