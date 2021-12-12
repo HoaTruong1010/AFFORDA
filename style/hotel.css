@@ -129,7 +129,7 @@ header {
 
   .welcom-btn {
     width: 30%;
-    animation: btn 2s ease-in-out infinite alternate;
+    animation: btn 2s ease-in-out infinite normal;
   }
 
     .in-line {
